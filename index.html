@@ -3,31 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anna Fitness</title>
-  <link rel="stylesheet" href="style.css">
+  <title>AnnaFitness</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('images/bgr.png') top center no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  background-color: #fff; /* lấp nền nếu ảnh không che hết */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+    .card {
+  background: rgba(255, 255, 255, 0.75); /* màu trắng trong suốt 75% */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  position: absolute;    /* đặt tuyệt đối theo màn hình */
+  bottom: 40px;          /* cách bottom 40px */
+  left: 50%;             /* canh giữa ngang */
+  transform: translateX(-50%);
+}
+
+    h1 {
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.05rem;
+      margin: 0.4rem 0;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #e91e63;
+    }
+    .contact {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contact a {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* nút gọi */
+.contact a.call {
+  background-color: #ff4d6d;
+  color: #fff;
+}
+.contact a.call:hover {
+  background-color: #e63b59;
+}
+
+/* nút zalo */
+.contact a.zalo {
+  background-color: #0088ff;
+  color: #fff;
+}
+.contact a.zalo:hover {
+  background-color: #006fd1;
+}
+
+    .contact-bar{
+margin-top: 0.9rem;
+display:flex;
+gap:0.6rem;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+}
+.btn{
+display:inline-flex;
+align-items:center;
+gap:0.6rem;
+padding:0.6rem 0.9rem;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active{transform:translateY(1px)}
+
+
+.btn-phone{
+}
+    .logo {
+      width: 210px;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <img src="images/logo.png" alt="Anna Fitness Logo" class="logo">
-      <h2>ANNA FITNESS</h2>
-      <div class="menu-toggle">☰</div>
-      <nav>
-        <button>Home</button>
-        <button>About Me</button>
-        <button>Contact</button>
-      </nav>
-    </aside>
+  <div class="card">
+    <img src="images/logo.png" alt="AnnaFitness Logo" class="logo">
+    <h1>Tại sao bạn chưa đi tập?</h1>
+    <p>👉 Ngại phòng tập đông người?</p>
+    <p>👉 Ngại ánh nhìn dò xét?</p>
 
-    <main>
-      <div class="content">
-        <h1>Chào mừng đến AnnaFitness</h1>
-        <p>Phòng tập chuyên nữ tại Xuyên Mộc – riêng tư, thoải mái và hiệu quả.</p>
-        <button class="know-me">Know Me</button>
-      </div>
-    </main>
+    <p class="highlight">💖 AnnaFitness – nơi dành riêng cho phụ nữ</p>
+    <p>✅ Không gian riêng tư, thoải mái</p>
+    <p>✅ Vui – Trẻ – Khoẻ – Đẹp</p>
+    <p>✅ Huấn luyện viên cá nhân kèm sát tập luyện</p>
+    <p>✅ Giúp bạn giảm cân, nâng cao sức khoẻ</p>
+<div class="contact">
+  <a href="tel:+84797329279" class="call">📞 Gọi ngay</a>
+  <a href="https://zalo.me/84797329279" target="_blank" class="zalo">💬 Nhắn Zalo</a>
+</div>
+
+    <div class="contact-bar">
+<!-- Sử dụng tel: để gọi trực tiếp trên thiết bị hỗ trợ -->
+<a class="btn btn-phone" href="tel:+84797329279" aria-label="Gọi AnnaFitness">📞 Gọi ngay<br><span class="small">0797.32.92.79</span></a>
+
+
+<!-- Link Zalo mở trang chat (số đã chuyển sang định dạng quốc tế 84...) -->
+<a class="btn btn-zalo" href="https://zalo.me/84797329279" target="_blank" rel="noopener" aria-label="Mở Zalo AnnaFitness">💬 Nhắn Zalo<br><span class="small">Zalo: 0797.32.92.79</span></a>
+</div>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

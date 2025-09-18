@@ -1,8 +1,8 @@
+// Load sidebar từ header.html vào tất cả các trang
 document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".sidebar nav");
-
-  menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("sidebar-container").innerHTML = data;
+    });
 });

@@ -153,3 +153,12 @@ main {
     height: calc(100vh - 80px);
   }
 }
+.content-box {
+  background: rgba(255, 255, 255, 0.9); /* nền trắng mờ */
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
