@@ -15,14 +15,16 @@
     .hero {
   position: relative;
   width: 100%;
-  padding-top: 177.77%; /* = 16/9 * 100 → nhưng xoay thành 9:16 cho mobile */
+  height: 100vh;
   background: url("images/bgr.png") no-repeat center center;
   background-size: cover;
 }
 
-@media (min-width: 769px) {
+/* Mobile: đổi sang ảnh dọc */
+@media (max-width: 768px) {
   .hero {
-    padding-top: 56.25%; /* 9/16 * 100 → chuẩn 16:9 desktop */
+    background: url("images/bgr-mobile.png") no-repeat center center;
+    background-size: cover;
   }
 }
 
@@ -255,6 +257,24 @@
   </div>
   <!-- Các nút, nội dung khác -->
 </div>
+
+<script>
+  function setHeroBackground() {
+    const hero = document.querySelector(".hero");
+    const ua = navigator.userAgent.toLowerCase();
+
+    const isMobile = /iphone|ipad|ipod|android|mobile/i.test(ua);
+
+    if (isMobile) {
+      hero.style.backgroundImage = "url('images/bgr-mobile.png')";
+    } else {
+      hero.style.backgroundImage = "url('images/bgr-desktop.png')";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", setHeroBackground);
+</script>
+
 
 
 
