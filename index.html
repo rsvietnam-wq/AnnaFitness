@@ -4,34 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AnnaFitness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    :root{--accent:#e91e63}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#333;background:#fff}
+
+    /* HERO */
+    .hero{position:relative;width:fit-content;margin:0 auto;padding:0;overflow:hidden}
+    .hero .background{display:block;max-width:100%;height:auto}
+
+    /* LOGO - nằm trong hero, có hiệu ứng nhảy múa khi hover */
+    .hero .logo{position:absolute;top:20px;left:20px;z-index:2;cursor:pointer}
+    .hero .logo img{width:220px;height:auto;display:block;transition:transform .18s ease}
+
+    /* keyframes cho hiệu ứng "dance" */
+    @keyframes dance {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); }
+      20%  { transform: translateY(-8px) rotate(-6deg) scale(1.06); }
+      40%  { transform: translateY(0) rotate(8deg)  scale(1.02); }
+      60%  { transform: translateY(-6px) rotate(-4deg) scale(1.04); }
+      80%  { transform: translateY(0) rotate(4deg)  scale(1.01); }
+      100% { transform: translateY(0) rotate(0deg)  scale(1); }
+    }
+
+    /* chạy animation khi hover, dừng khi mouse rời */
+    .hero .logo:hover img{
+      animation: dance 800ms ease-in-out infinite;
+    }
+
+    /* CARD */
+    .card{position:relative;z-index:3;background:rgba(255,255,255,0.65);backdrop-filter:blur(6px);padding:18px;border-radius:12px;max-width:480px;width:90%;margin:14px auto;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+    h1{color:var(--accent);margin:6px 0 10px;font-size:1.35rem}
+    p{margin:6px 0;font-size:1.02rem}
+    .highlight{font-weight:700;color:var(--accent);margin-top:6px}
+
+    /* CONTACT BUTTONS */
+    .contact{display:flex;gap:10px;justify-content:center;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;text-decoration:none;color:#fff;font-weight:700}
+    .btn.phone{background:linear-gradient(90deg,#ff7a8a,#ff4e7a)}
+    .btn.zalo{background:linear-gradient(90deg,#2d9bf0,#1b78d6)}
+    .btn.messenger{background:#0084ff}
+
+    /* responsive */
+    @media (max-width:420px){.hero .logo img{width:160px}.card{padding:12px}}
     body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url('images/bgr.png') top center no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
-  background-color: #fff; /* lấp nền nếu ảnh không che hết */
+  background-color: #fff;
   color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   text-align: center;
 }
 
-    .card {
-  background: rgba(255, 255, 255, 0.75); /* màu trắng trong suốt 75% */
+
+
+/* hero wrapper */
+.hero {
+  position: relative;
+  width: fit-content;  /* hero rộng = ảnh */
+  height: auto;        /* hero cao = ảnh */
+  margin: 0 auto;      /* căn giữa nếu muốn */
+}
+
+.hero .background {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.hero .logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.hero .logo img {
+  width: 220px;
+  height: auto;
+}
+
+
+/* Card nổi trên bgr, có nền trong suốt */
+.card {
+  background: rgba(255, 255, 255, 0.65);  /* trắng mờ */
+  backdrop-filter: blur(6px);             /* blur bgr phía sau */
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   max-width: 400px;
   width: 90%;
-  position: absolute;    /* đặt tuyệt đối theo màn hình */
-  bottom: 40px;          /* cách bottom 40px */
-  left: 50%;             /* canh giữa ngang */
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 5;   /* nổi trên bgr, dưới logo */
 }
+
 
     h1 {
       color: #e91e63;
@@ -51,7 +120,6 @@
   gap: 12px;
   justify-content: center;
 }
-
 .contact a {
   text-decoration: none;
   padding: 10px 18px;
@@ -78,7 +146,16 @@
 .contact a.zalo:hover {
   background-color: #006fd1;
 }
-
+.contact .btn.messenger {
+  background: #0084ff; /* xanh messenger */
+ color: #fff;
+}
+.btn.messenger:hover {
+  background: #006edc;
+}
+.contact .btn:hover {
+  opacity: 0.85;
+}
     .contact-bar{
 margin-top: 0.9rem;
 display:flex;
@@ -104,26 +181,46 @@ transition: transform .12s ease, box-shadow .12s ease;
 .btn-phone{
 }
     .logo {
-      width: 210px;
-      margin-bottom: 1rem;
-    }
+  position: absolute;
+  top: 12px;      /* chỉnh lên/ xuống ở đây */
+  left 18px;     /* chỉnh sang trái/phải ở đây */
+  z-index: 9999;  /* luôn trên cùng */
+}
+
+.logo-img {
+  width: 220px;   /* kích thước logo (anh muốn to hơn 2 lần) */
+  height: auto;
+  display: block;
+}
   </style>
 </head>
 <body>
+  <div class="hero">
+  <img src="images/bgr.png" alt="background" class="background">
+  <div class="logo">
+    <img src="images/logo.png" alt="AnnaFitness Logo">
+  </div>
+</div>
+
+
+
+
+
+
+
   <div class="card">
-    <img src="images/logo.png" alt="AnnaFitness Logo" class="logo">
     <h1>Tại sao bạn chưa đi tập?</h1>
     <p>👉 Ngại phòng tập đông người?</p>
     <p>👉 Ngại ánh nhìn dò xét?</p>
-
     <p class="highlight">💖 AnnaFitness – nơi dành riêng cho phụ nữ</p>
     <p>✅ Không gian riêng tư, thoải mái</p>
     <p>✅ Vui – Trẻ – Khoẻ – Đẹp</p>
     <p>✅ Huấn luyện viên cá nhân kèm sát tập luyện</p>
     <p>✅ Giúp bạn giảm cân, nâng cao sức khoẻ</p>
 <div class="contact">
-  <a href="tel:+84797329279" class="call">📞 Gọi ngay</a>
-  <a href="https://zalo.me/84797329279" target="_blank" class="zalo">💬 Nhắn Zalo</a>
+<a href="tel:+84797329279" class="btn phone">📞 Gọi ngay</a>
+<a href="https://zalo.me/84797329279" target="_blank" class="btn zalo">💬 Zalo</a>
+<a href="https://m.me/tao.lun.1238" target="_blank" class="btn messenger"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
 </div>
 
     <div class="contact-bar">
