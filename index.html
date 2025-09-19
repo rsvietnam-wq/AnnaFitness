@@ -156,42 +156,46 @@
 .contact .btn:hover {
   opacity: 0.85;
 }
-    .contact-bar{
-margin-top: 0.9rem;
-display:flex;
-gap:0.6rem;
-justify-content:center;
-align-items:center;
-flex-wrap:wrap;
-}
-.btn{
-display:inline-flex;
-align-items:center;
-gap:0.6rem;
-padding:0.6rem 0.9rem;
-border-radius:10px;
-text-decoration:none;
-font-weight:600;
-box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-transition: transform .12s ease, box-shadow .12s ease;
-}
-.btn:active{transform:translateY(1px)}
-
-
-.btn-phone{
-}
-    .logo {
-  position: absolute;
-  top: 12px;      /* chỉnh lên/ xuống ở đây */
-  left 18px;     /* chỉnh sang trái/phải ở đây */
-  z-index: 9999;  /* luôn trên cùng */
+ .contact-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;          /* khoảng cách giữa các item */
+  margin-top: 20px;
+  flex-wrap: wrap;    /* tự xuống hàng khi màn nhỏ */
 }
 
-.logo-img {
-  width: 220px;   /* kích thước logo (anh muốn to hơn 2 lần) */
-  height: auto;
-  display: block;
+.contact-bar .btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
+
+
+
+.qr-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.qr-center img {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.qr-center p {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
   </style>
 </head>
 <body>
@@ -224,13 +228,17 @@ transition: transform .12s ease, box-shadow .12s ease;
 </div>
 
     <div class="contact-bar">
-<!-- Sử dụng tel: để gọi trực tiếp trên thiết bị hỗ trợ -->
-<a class="btn btn-phone" href="tel:+84797329279" aria-label="Gọi AnnaFitness">📞 Gọi ngay<br><span class="small">0797.32.92.79</span></a>
+  
 
-
-<!-- Link Zalo mở trang chat (số đã chuyển sang định dạng quốc tế 84...) -->
-<a class="btn btn-zalo" href="https://zalo.me/84797329279" target="_blank" rel="noopener" aria-label="Mở Zalo AnnaFitness">💬 Nhắn Zalo<br><span class="small">Zalo: 0797.32.92.79</span></a>
+  <!-- QR code -->
+  <div class="qr-center">
+    <img 
+      src="images/qr-zalo.png" 
+      alt="QR Zalo AnnaFitness" class="qr-img">
+    <p>Quét QR Zalo</p>
+  </div>
 </div>
+
   </div>
 </body>
 </html>
