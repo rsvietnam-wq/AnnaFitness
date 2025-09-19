@@ -15,10 +15,17 @@
     .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* full chiều cao màn hình */
+  padding-top: 177.77%; /* = 16/9 * 100 → nhưng xoay thành 9:16 cho mobile */
   background: url("images/bgr.png") no-repeat center center;
-  background-size: cover; /* giúp ảnh phủ full */
+  background-size: cover;
 }
+
+@media (min-width: 769px) {
+  .hero {
+    padding-top: 56.25%; /* 9/16 * 100 → chuẩn 16:9 desktop */
+  }
+}
+
 
     .hero .background{display:block;max-width:100%;height:auto}
 
