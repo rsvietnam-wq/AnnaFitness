@@ -195,6 +195,41 @@
   font-size: 13px;
   font-weight: bold;
 }
+.qr-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.qr-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease;
+}
+
+.qr-box img {
+  width: 220px;
+  height: 220px;
+  border-radius: 8px;
+}
+
+.qr-box p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
 
   </style>
 </head>
@@ -225,19 +260,17 @@
 <a href="tel:+84797329279" class="btn phone">📞 Gọi ngay</a>
 <a href="https://zalo.me/84797329279" target="_blank" class="btn zalo">💬 Zalo</a>
 <a href="https://m.me/tao.lun.1238" target="_blank" class="btn messenger"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
+<!-- Nút Zalo -->
+
 </div>
-
-    <div class="contact-bar">
-  
-
-  <!-- QR code -->
-  <div class="qr-center">
-    <img 
-      src="images/qr-zalo.png" 
-      alt="QR Zalo AnnaFitness" class="qr-img">
-    <p>Quét QR Zalo</p>
+<!-- Popup QR -->
+<div class="qr-popup" onclick="this.style.display='none'">
+  <div class="qr-box" onclick="event.stopPropagation()">
+    <img src="images/qr-zalo.png" alt="QR Zalo">
+    <p>Quét QR để nhắn Zalo</p>
   </div>
 </div>
+    
 
   </div>
 </body>
