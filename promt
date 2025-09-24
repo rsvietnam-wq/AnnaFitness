@@ -1,0 +1,7 @@
+Please refactor the following code:
+1. Remove duplicated or redundant code.
+2. Consolidate CSS rules and simplify selectors.
+3. Optimize JavaScript for readability and minimalism.
+4. Keep functionality the same.
+5. Add close functionality for popup modals if present.
+Return the optimized code only, no explanation.
